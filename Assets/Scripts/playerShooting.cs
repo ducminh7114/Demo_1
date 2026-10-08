@@ -8,7 +8,7 @@ public class playerShooting : MonoBehaviour
     public Vector3 bulletOffset;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame

@@ -14,7 +14,7 @@ public class HealthBar : MonoBehaviour
     {
         originalWidth = Mask.sizeDelta.x;
         UpdateHealthValue();
-        health.onHealthChange += UpdateHealthValue;
+        health.onHealthChanged += UpdateHealthValue;
     }
 
     private void UpdateHealthValue()

@@ -3,52 +3,60 @@ using UnityEngine;
 public class FlyPathAgent : MonoBehaviour
 {
     public FlyPath flyPath;
-    public float flySpeed;
+    public float flySpeed = 3f;
+    public Enemyhealth enemyhealth;
+
     private int nextIndex = 1;
 
-    void Start () {
-
+    private void Awake()
+    {
+        if (enemyhealth == null)
+            enemyhealth = GetComponent<Enemyhealth>();
     }
 
-    void Update ()
+    private void Update()
     {
-        if (flyPath == null) return;
+        if (flyPath == null || flyPath.waypoints == null ||
+            flyPath.waypoints.Length == 0)
+            return;
+
         if (nextIndex >= flyPath.waypoints.Length)
         {
-            Destroy(gameObject);
+            if (enemyhealth != null)
+                enemyhealth.KillEnemy();
+
             return;
         }
-        if (transform.position != flyPath[nextIndex])
-        {
-            FlyToNextWaypoint();
-        }
-        else
+
+        Vector3 target = flyPath[nextIndex];
+
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            target,
+            flySpeed * Time.deltaTime
+        );
+
+        LookAt(target);
+
+        if (Vector3.Distance(transform.position, target) < 0.01f)
         {
             nextIndex++;
         }
-
-        if (transform.position != flyPath[nextIndex])
-        {
-            FlyToNextWaypoint();
-            LookAt(flyPath[nextIndex]);
-        }
-        else
-        {
-            nextIndex++;
-        }
-
     }
-
-    private void FlyToNextWaypoint()
-=> transform.position = Vector3.MoveTowards(transform.position,
-flyPath[nextIndex], flySpeed * Time.deltaTime);
 
     private void LookAt(Vector2 destination)
     {
         Vector2 position = transform.position;
-        var lookDirection = destination - position;
-        if (lookDirection.magnitude < 0.01f) return;
-        var angle = Vector2.SignedAngle(Vector3.down, lookDirection);
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        Vector2 lookDirection = destination - position;
+
+        if (lookDirection.magnitude < 0.01f)
+            return;
+
+        float angle = Vector2.SignedAngle(
+            Vector2.down,
+            lookDirection
+        );
+
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 }

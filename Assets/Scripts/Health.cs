@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
     public int defaultHealthPoint;
     public System.Action onDead;
     public System.Action onHealthChanged;
-    public int healthPoint;
+    [HideInInspector] public int healthPoint;
 
     private void Start()
     {
@@ -28,8 +28,6 @@ public class Health : MonoBehaviour
             Die();
         }
     }
-
-    public void OnTriggerEnter2D(Collider2D collision) => Die();
 
     protected virtual void Die()
     {

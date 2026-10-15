@@ -125,8 +125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemyhealth
   explosionPrefab: {fileID: 5768612589459765234, guid: 1e893c447d5f79144a014421274d9b84, type: 3}
-  defaultHealthPoint: 10
-  healthPoint: 0
+  defaultHealthPoint: 2
+  healthPoint: 2
 --- !u!95 &8546055426522040287
 Animator:
   serializedVersion: 7
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
   health: {fileID: 5325404293167211055}
-  damage: 2
+  damage: 1
 --- !u!114 &4033811802312013775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlyPathAgent
   flyPath: {fileID: 0}
-  flySpeed: 0.5
+  flySpeed: 2
 --- !u!1 &4301014905433414753
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,22 +4,31 @@ public class Enemyhealth : Health
 {
     public static int LivingEnemyCount = 0;
 
-    private void Awake() => LivingEnemyCount++;
-
-    private void Update()
+    private void Awake()
     {
-       Debug.Log("Number of enemy is: " +  LivingEnemyCount);
+        LivingEnemyCount++;
     }
 
     protected override void Die()
     {
-    LivingEnemyCount--;
-    base.Die();
-    Debug.Log("Enemy died");
+        if (isDead)
+            return;
+
+        LivingEnemyCount--;
+
+        Debug.Log("Enemy died. Remaining enemies: " + LivingEnemyCount);
+
+        base.Die();
     }
 
     public void KillEnemy()
     {
         Die();
+    }
+
+    private void OnDestroy()
+    {
+        // Optional: useful if enemies can also be destroyed
+        // by other scripts or by manually removing them.
     }
 }

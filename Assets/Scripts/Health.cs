@@ -1,12 +1,17 @@
 using UnityEngine;
+using System;
 
 public class Health : MonoBehaviour
 {
     public GameObject explosionPrefab;
     public int defaultHealthPoint;
-    public System.Action onDead;
-    public System.Action onHealthChanged;
+
+    public Action onDead;
+    public Action onHealthChanged;
+
     [HideInInspector] public int healthPoint;
+
+    protected bool isDead = false;
 
     private void Start()
     {
@@ -16,14 +21,13 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if ( healthPoint <= 0)
-        {
+        if (isDead || healthPoint <= 0)
             return;
-        }
 
         healthPoint -= damage;
         onHealthChanged?.Invoke();
-        if ( healthPoint <= 0 )
+
+        if (healthPoint <= 0)
         {
             Die();
         }
@@ -31,9 +35,23 @@ public class Health : MonoBehaviour
 
     protected virtual void Die()
     {
-        var explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
-        Destroy(explosion, 1);
-        Destroy(gameObject);
+        if (isDead)
+            return;
+
+        isDead = true;
+
+        if (explosionPrefab != null)
+        {
+            GameObject explosion = Instantiate(
+                explosionPrefab,
+                transform.position,
+                transform.rotation
+            );
+
+            Destroy(explosion, 1f);
+        }
+
         onDead?.Invoke();
+        Destroy(gameObject);
     }
 }

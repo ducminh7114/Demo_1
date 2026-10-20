@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlyPathAgent
   flyPath: {fileID: 0}
   flySpeed: 2
+  enemyhealth: {fileID: 0}
 --- !u!1 &4301014905433414753
 GameObject:
   m_ObjectHideFlags: 0

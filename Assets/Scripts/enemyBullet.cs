@@ -4,10 +4,16 @@ public class enemyBullet : MonoBehaviour
 {
     public float flySpeed;
     public int damage;
+    public float direction;
+    public float Timer = 0f;
+    [HideInInspector]public float angle;
 
     void Start()
     {
-        Destroy(gameObject, 2f);
+        angle = (1 - direction) * 90f;
+        Destroy(gameObject, Timer);
+
+        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,8 +30,7 @@ public class enemyBullet : MonoBehaviour
     void Update()
     {
         var newPosition = transform.position;
-        newPosition.y += Time.deltaTime * flySpeed;
+        newPosition.y += direction * Time.deltaTime * flySpeed;
         transform.position = newPosition;
-
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8067301923407230897}
   - component: {fileID: 8572098941368564074}
   - component: {fileID: 3672993641933885264}
+  - component: {fileID: 1193435940277515905}
   m_Layer: 7
   m_Name: idle_drone_green 1
   m_TagString: Untagged
@@ -140,6 +141,20 @@ MonoBehaviour:
   flyPath: {fileID: 0}
   flySpeed: 1
   enemyhealth: {fileID: 8572098941368564074}
+--- !u!114 &1193435940277515905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3071251380115046266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2231f51aab0a8014894c73782629f0a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  health: {fileID: 8572098941368564074}
+  damage: 100
 --- !u!1 &4376720669511295690
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,13 +181,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4376720669511295690}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3477168946236027478}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2834500960483712841
 SpriteRenderer:
   serializedVersion: 3

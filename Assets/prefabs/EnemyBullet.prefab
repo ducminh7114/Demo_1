@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3996962552119956155}
   - component: {fileID: 3272939158483225596}
-  - component: {fileID: 2294061383567728167}
   - component: {fileID: 8601984390141231617}
   - component: {fileID: 8038782207712692707}
-  m_Layer: 7
+  - component: {fileID: 5303052517098177220}
+  m_Layer: 8
   m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,20 +95,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!114 &2294061383567728167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6803553657476234104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2684c60dffcb6354cb9a9560d97e7490, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Bullet
-  flySpeed: 4
-  damage: 1
 --- !u!61 &8601984390141231617
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -182,3 +168,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5303052517098177220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803553657476234104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d12f0d1aa8f6094cb057e54b35ee19c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyBullet
+  flySpeed: 3
+  damage: 1
+  direction: -1
+  Timer: 5
+  angle: 0

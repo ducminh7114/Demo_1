@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
   health: {fileID: 5325404293167211055}
-  damage: 1
+  damage: 1000
 --- !u!114 &4033811802312013775
 MonoBehaviour:
   m_ObjectHideFlags: 0

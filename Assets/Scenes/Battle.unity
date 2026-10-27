@@ -226,7 +226,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -4, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &30157338
@@ -2531,6 +2531,7 @@ GameObject:
   - component: {fileID: 972572491}
   - component: {fileID: 972572490}
   - component: {fileID: 972572492}
+  - component: {fileID: 972572493}
   m_Layer: 6
   m_Name: idle_player_basic
   m_TagString: Untagged
@@ -2740,6 +2741,18 @@ MonoBehaviour:
   explosionPrefab: {fileID: 399305651715889053, guid: 510eb4dc353173442b8f1c2794d0a612, type: 3}
   defaultHealthPoint: 3
   healthPoint: 3
+--- !u!114 &972572493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972572485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0862905aef7cd5498a241be6b77b971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeepObjectOnScreen
 --- !u!114 &979616208 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8446623427350622831, guid: 784788ad6ddf6b04f84e737dfc797419, type: 3}
@@ -4381,7 +4394,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -280, y: 563}
+  m_AnchoredPosition: {x: -433, y: 563}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1907865999

@@ -33,6 +33,21 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void HealPlayer(int damage)
+    {
+        if(isDead || healthPoint <= 0)
+        {
+            return;
+        }
+        healthPoint += damage;
+        onHealthChanged?.Invoke();
+
+        if(healthPoint == defaultHealthPoint)
+        {
+            Debug.Log("Player already at max health");
+        }
+    }
+
     protected virtual void Die()
     {
         if (isDead)

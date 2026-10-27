@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8572098941368564074}
   - component: {fileID: 3672993641933885264}
   - component: {fileID: 1193435940277515905}
+  - component: {fileID: -2657594076610886759}
   m_Layer: 7
   m_Name: idle_drone_green 1
   m_TagString: Untagged
@@ -155,6 +156,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
   health: {fileID: 8572098941368564074}
   damage: 100
+--- !u!114 &-2657594076610886759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3071251380115046266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00b4167c763dd6439bbf66254dc62ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectReplacement
+  replacementPrefab: {fileID: 2424502657427563086, guid: e087c4c3a8abd5e4487512987859abd8, type: 3}
+  percentage: 50
 --- !u!1 &4376720669511295690
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,11 +2,17 @@ using UnityEngine;
 
 public class Enemyhealth : Health
 {
-    public static int LivingEnemyCount = 0;
+    public static int LivingEnemyCount;
 
     private void Awake()
     {
         LivingEnemyCount++;
+    }
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetLivingEnemyCount()
+    {
+        LivingEnemyCount = 0;
     }
 
     protected override void Die()

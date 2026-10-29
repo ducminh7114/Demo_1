@@ -5,32 +5,36 @@ public class Bullet : MonoBehaviour
     public float flySpeed;
     public int damage;
     public float direction;
-    public float Timer = 0f;
-    public float angle;
+    public float lifeTime = 0f;
 
+    private Vector2 moveDirection;
+
+
+    public void Initialize(Vector2 direction)
+    {
+        moveDirection = direction.normalized;
+        transform.up = moveDirection;
+    }
     void Start()
     {
-        angle = (1 - direction) * 90f;
-        Destroy(gameObject, Timer);
-
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+       Destroy(gameObject, lifeTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var enemy = collision.GetComponent<Enemyhealth>();
+
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        var newPosition = transform.position;
-        newPosition.y += direction * Time.deltaTime * flySpeed;
-        transform.position = newPosition;
+        transform.position += (Vector3)(moveDirection * flySpeed * Time.deltaTime);
     }
+
 }

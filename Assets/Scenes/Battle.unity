@@ -226,7 +226,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4, y: 0}
+  m_AnchoredPosition: {x: -1, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &30157338
@@ -2607,7 +2607,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972572485}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.0032755262, y: -0, z: -0, w: 0.99999464}
   m_LocalPosition: {x: -0.02, y: -2.96, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
@@ -2615,7 +2615,7 @@ Transform:
   - {fileID: 1565155518}
   - {fileID: 725091352}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.375, y: 0, z: 0}
 --- !u!114 &972572488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2640,9 +2640,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047911c51243a4c49801f4b09dce01f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerShooting
-  bulletPrefabs: {fileID: 7424520699909559180, guid: 739a6a2171c9f804181362757f34db1b, type: 3}
+  normalBulletPrefab: {fileID: 6456824304220675760, guid: 739a6a2171c9f804181362757f34db1b, type: 3}
+  spreadBulletPrefab: {fileID: 615554539892540524, guid: 11305472af85de444a7a852d05bac7cf, type: 3}
+  laserBeamPrefab: {fileID: -2187013263053010378, guid: 2b72a069869d4364facf3f145f958950, type: 3}
+  currentBulletType: 2
   shootingInterval: 0.1
   bulletOffset: {x: 0, y: 0, z: 0}
+  spreadBulletCount: 5
+  spreadAngle: 60
 --- !u!50 &972572490
 Rigidbody2D:
   serializedVersion: 5
@@ -4392,9 +4397,9 @@ RectTransform:
   - {fileID: 30157337}
   m_Father: {fileID: 1907866001}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -433, y: 563}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 95, y: -77}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1907865999

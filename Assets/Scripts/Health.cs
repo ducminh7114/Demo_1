@@ -35,16 +35,17 @@ public class Health : MonoBehaviour
 
     public void HealPlayer(int damage)
     {
-        if(isDead || healthPoint <= 0)
+        if(healthPoint < defaultHealthPoint)
         {
-            return;
+            healthPoint += damage;
+            onHealthChanged?.Invoke();
         }
-        healthPoint += damage;
-        onHealthChanged?.Invoke();
 
-        if(healthPoint == defaultHealthPoint)
+
+        if (healthPoint == defaultHealthPoint)
         {
             Debug.Log("Player already at max health");
+            return;
         }
     }
 

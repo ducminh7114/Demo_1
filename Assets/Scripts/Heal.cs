@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Heal : MonoBehaviour
 {
-    public Enemyhealth health;
     public int healAmount;
     public float flySpeed;
     public float direction;
+    private bool collected;
     [HideInInspector] public float angle;
 
     private void Start()
@@ -17,11 +17,15 @@ public class Heal : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collected)
+            return;
+
         var playerHealth = collision.GetComponent<PlayerHealth>();
         if(playerHealth != null)
         {
             playerHealth.HealPlayer(healAmount);
-            health.TakeDamage(1000);
+            collected = true;
+            Destroy(gameObject);
         }
     }
 

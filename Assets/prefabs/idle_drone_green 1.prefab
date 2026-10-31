@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectReplacement
   replacementPrefab: {fileID: 2424502657427563086, guid: e087c4c3a8abd5e4487512987859abd8, type: 3}
-  percentage: 50
+  percentage: 20
 --- !u!1 &4376720669511295690
 GameObject:
   m_ObjectHideFlags: 0

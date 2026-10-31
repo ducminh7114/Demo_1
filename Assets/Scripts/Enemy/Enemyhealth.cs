@@ -3,10 +3,12 @@ using UnityEngine;
 public class Enemyhealth : Health
 {
     public static int LivingEnemyCount;
+    private ObjectReplacement objectReplacement;
 
     private void Awake()
     {
         LivingEnemyCount++;
+        objectReplacement = GetComponent<ObjectReplacement>();
     }
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
@@ -21,6 +23,11 @@ public class Enemyhealth : Health
             return;
 
         LivingEnemyCount--;
+
+        if (objectReplacement != null)
+        {
+            objectReplacement.TryReplace();
+        }
 
         Debug.Log("Enemy died. Remaining enemies: " + LivingEnemyCount);
 

@@ -9,16 +9,18 @@ public class ObjectReplacement : MonoBehaviour
 
     [SerializeField] private float percentage = 70f;
 
-    private void ReplaceObject(GameObject replacementObject)
+    public void TryReplace()
     {
-        float roll = Random.Range(0.0f, 100.0f);
+        float roll = Random.Range(0f, 100f);
+
+        if (replacementPrefab != null && roll < percentage)
         {
-            if (replacementObject == null && roll < percentage)
-            {
-                Instantiate(replacementPrefab, transform.position, transform.rotation);
-            }
+            Instantiate(
+                replacementPrefab,
+                transform.position,
+                transform.rotation
+            );
         }
-        Destroy(gameObject);
     }
-    
+
 }

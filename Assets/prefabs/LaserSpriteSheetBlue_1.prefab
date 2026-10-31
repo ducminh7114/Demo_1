@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3706261883463113766}
   - component: {fileID: -2187013263053010378}
   - component: {fileID: 3007434854687030428}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LaserSpriteSheetBlue_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,3 +1,4 @@
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class Enemyhealth : Health
@@ -9,6 +10,7 @@ public class Enemyhealth : Health
     {
         LivingEnemyCount++;
         objectReplacement = GetComponent<ObjectReplacement>();
+        ResetLivingEnemyCount();
     }
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
@@ -23,6 +25,12 @@ public class Enemyhealth : Health
             return;
 
         LivingEnemyCount--;
+
+        if(LivingEnemyCount < 0)
+        {
+            Debug.Log("Number of enemy reach 0");
+            LivingEnemyCount = 0;
+        }
 
         if (objectReplacement != null)
         {

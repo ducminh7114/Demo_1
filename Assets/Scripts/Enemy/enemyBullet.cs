@@ -1,36 +1,56 @@
+
 using UnityEngine;
 
 public class enemyBullet : MonoBehaviour
 {
-    public float flySpeed;
-    public int damage;
-    public float direction;
-    public float Timer = 0f;
-    [HideInInspector]public float angle;
+    public float flySpeed = 5f;
+    public int damage = 10;
+    public float direction = -1f;
+    public float Timer = 5f;
+
+    [HideInInspector] public float angle;
+
+    private Vector2 moveDirection;
+    private bool customDirection = false;
 
     void Start()
     {
-        angle = (1 - direction) * 90f;
-        Destroy(gameObject, Timer);
+        if (!customDirection)
+        {
+            // Original vertical movement
+            moveDirection = Vector2.up * direction;
+        }
 
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        Destroy(gameObject, Timer);
+    }
+
+    public void SetDirection(Vector2 newDirection)
+    {
+        customDirection = true;
+        moveDirection = newDirection.normalized;
+
+        float rotationAngle =
+            Mathf.Atan2(moveDirection.y, moveDirection.x)
+            * Mathf.Rad2Deg - 90f;
+
+        transform.rotation =
+            Quaternion.Euler(0, 0, rotationAngle);
+    }
+
+    void Update()
+    {
+        transform.position +=
+            (Vector3)(moveDirection * flySpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        var enemy = collision.GetComponent<PlayerHealth>();
-        if (enemy != null)
-        {
-            enemy.TakeDamage(damage);
-        }
-        Destroy(gameObject);
-    }
+        Health player = collision.GetComponent<Health>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        var newPosition = transform.position;
-        newPosition.y += direction * Time.deltaTime * flySpeed;
-        transform.position = newPosition;
+        if (player != null)
+        {
+            player.TakeDamage(damage);
+            Destroy(gameObject);
+        }
     }
 }

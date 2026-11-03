@@ -4,6 +4,7 @@ public class EnemyAttack : MonoBehaviour
 {
     public Enemyhealth health;
     public int damage;
+    public int enemyDamage;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -11,7 +12,7 @@ public class EnemyAttack : MonoBehaviour
         if (playerHealth != null )
         {
             playerHealth.TakeDamage(damage);
-            health.TakeDamage(1000);
+            health.TakeDamage(enemyDamage);
         }
     }
 }
